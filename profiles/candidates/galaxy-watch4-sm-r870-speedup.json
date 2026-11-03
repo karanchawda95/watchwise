@@ -1,0 +1,62 @@
+{
+  "id": "samsung-galaxy-watch4-sm-r870-speedup-candidate",
+  "manufacturer": "Samsung",
+  "model": "SM-R870",
+  "platform": "wear-os-adb",
+  "evidence_level": "user-reported",
+  "protected_packages": [
+    "android",
+    "com.android.systemui",
+    "com.android.bluetooth",
+    "com.android.phone",
+    "com.android.nfc",
+    "com.android.networkstack.process",
+    "com.google.android.wearable.app",
+    "com.google.android.apps.wearable.settings",
+    "com.google.android.apps.wearable.systemui",
+    "com.google.android.gms",
+    "com.google.android.permissioncontroller",
+    "com.samsung.android.wearable.sysui",
+    "com.samsung.android.wcs.extension",
+    "com.samsung.android.clientconnection",
+    "com.samsung.android.secondconnection"
+  ],
+  "package_rules": [
+    {
+      "package": "com.sec.android.easyMover",
+      "action": "disable-user",
+      "evidence": "Tier 1 speed-up candidate. SmartSwitch transfer app (/system/app/SmartSwitchWatch), only used when moving data to a new phone. Resident 38 MB on SM-R870 build R870XXS2JZG3 (ps RSS, 2026-11-03); no running services in dumpsys activity services. Observed on this device only, not independently validated.",
+      "rollback": "enable"
+    },
+    {
+      "package": "com.samsung.android.wear.smartswitchassistant",
+      "action": "disable-user",
+      "evidence": "Tier 1 speed-up candidate. SmartSwitch companion (/system/app/SmartSwitchWatchAssistant). Resident 28 MB on SM-R870 build R870XXS2JZG3; idle in the cached-process list. Observed on this device only, not independently validated.",
+      "rollback": "enable"
+    },
+    {
+      "package": "com.sec.android.diagmonagent",
+      "action": "disable-user",
+      "evidence": "Tier 1 speed-up candidate. Samsung diagnostics/telemetry uploader (/system/priv-app/DiagMonAgentWatch), not a user feature. Resident 37 MB on SM-R870 build R870XXS2JZG3; no running services. Disabling removes the ability to send a support log through Samsung Members. Observed on this device only, not independently validated.",
+      "rollback": "enable"
+    },
+    {
+      "package": "com.sec.android.soagent",
+      "action": "disable-user",
+      "evidence": "Tier 1 speed-up candidate. Samsung offers/marketing push agent (/system/priv-app/SOAgentWatch), not a user feature. Not resident at sample time but registered at boot on SM-R870 build R870XXS2JZG3. Observed on this device only, not independently validated.",
+      "rollback": "enable"
+    },
+    {
+      "package": "com.google.android.wearable.assistant",
+      "action": "disable-user",
+      "evidence": "Tier 2 candidate, user-confirmed unused. Google Assistant (/data/app, user-installed update), running as a foreground service at 50 MB on SM-R870 build R870XXS2JZG3. Disabling removes 'Hey Google' and voice queries until re-enabled. Observed on this device only, not independently validated.",
+      "rollback": "enable"
+    },
+    {
+      "package": "com.google.android.tts",
+      "action": "disable-user",
+      "evidence": "Tier 2 candidate, user-confirmed unused. Google TTS engine (/data/app), resident 42 MB on SM-R870 build R870XXS2JZG3. Disabling removes spoken replies and accessibility readout until re-enabled. Observed on this device only, not independently validated.",
+      "rollback": "enable"
+    }
+  ]
+}

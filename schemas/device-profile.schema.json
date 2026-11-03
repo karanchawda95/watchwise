@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WatchWise device profile",
+  "type": "object",
+  "required": ["id", "manufacturer", "model", "platform", "evidence_level", "protected_packages", "package_rules"],
+  "properties": {
+    "id": {"type": "string"}, "manufacturer": {"type": "string"}, "model": {"type": "string"},
+    "platform": {"const": "wear-os-adb"}, "evidence_level": {"enum": ["user-reported", "independently-validated"]},
+    "protected_packages": {"type": "array", "items": {"type": "string"}},
+    "package_rules": {"type": "array", "items": {"type": "object", "required": ["package", "action", "evidence", "rollback"], "properties": {"package": {"type": "string"}, "action": {"enum": ["disable-user"]}, "evidence": {"type": "string"}, "rollback": {"type": "string"}}}}
+  },
+  "additionalProperties": false
+}

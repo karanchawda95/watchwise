@@ -1,0 +1,16 @@
+[build-system]
+requires = []
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "watchwise"
+version = "0.1.0"
+description = "Conservative, reversible Wear OS ADB maintenance toolkit"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.scripts]
+watchwise = "watchwise.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

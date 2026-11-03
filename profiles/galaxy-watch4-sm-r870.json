@@ -1,0 +1,9 @@
+{
+  "id": "samsung-galaxy-watch4-sm-r870",
+  "manufacturer": "Samsung",
+  "model": "SM-R870",
+  "platform": "wear-os-adb",
+  "evidence_level": "user-reported",
+  "protected_packages": ["android", "com.android.systemui", "com.google.android.wearable.app"],
+  "package_rules": []
+}
